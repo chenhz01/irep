@@ -1,0 +1,2 @@
+# Only the two simulation proofs need numpy; the gate and the FLT proof are stdlib-only.
+numpy>=1.20
