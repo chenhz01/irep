@@ -1,8 +1,17 @@
 # IREP — 工业逆推协议（Industrial Reverse-Engineering Protocol）
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![6 tools · exit 0](https://img.shields.io/badge/6%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
+
 > **我们造了一把能判死系统的尺子。第一刀，量的它自己。**
 
 状态：规范 v1.0.0 · 许可：MIT · 自判：`BREAKTHROUGH`（r = 1.143）· 本文所有数字均可复跑。
+
+**三条入口 — 挑一条，各三十秒**
+
+- **想省钱** → 姊妹仓把 AI 视频验收的抽卡减到实测 9.82×，且安全层永不参与减抽卡：[`irep-video-acceptance-ci`](https://github.com/chenhz01/irep-video-acceptance-ci)
+- **想接入** → 一条命令、零第三方依赖：`python gate/irep_gate.py`（四把尺，一个判决）；再跑 `gate/irep_gate_reversed.py`，把尺子转向自己。
+- **想质疑** → 先读长文 §12（这套机制自己会怎么坏）与 §13（机器校验），再跑那个「缺件就返 1」的校验器：[`docs/FEYNMAN-4ALIGN.zh-CN.md`](docs/FEYNMAN-4ALIGN.zh-CN.md)
+
 
 ---
 
@@ -26,10 +35,12 @@ IREP 是一把尺子。指向任何系统——开源代码、二进制固件、
 |---|---|---|---|
 | **结果** | 每个数字都有口径、有命令、有边界 | 长文字数台账 §4.3 | `proofs/*.py`，全部 exit 0 |
 | **技术** | 每个机制都有名字、输入→输出、失效条件 | 机制四件套台账 §5.2 | `spec/`、`gate/` |
-| **代码** | 每条命令都真跑过，exit code 是契约 | 六条命令，零第三方依赖，输出确定 | `## 复跑一切` |
+| **代码** | 每条命令都真跑过，exit code 是契约 | 六条命令，仅两条实证需 numpy，输出确定 | `## 复跑一切` |
 | **方向** | 明确写出不做什么、不给谁用 | 负向声明 + 第一页的 G8 | `## 使用边界` |
 
 完整契约——一万余字、十四个例子、六条联想、出处清单，以及「这套机制自己会怎么坏」： [`docs/FEYNMAN-4ALIGN.zh-CN.md`](docs/FEYNMAN-4ALIGN.zh-CN.md)。
+
+英文精华版（约 2,200 词）——四对齐定义、评分卡、失效条件与中文版同构：[`docs/FEYNMAN-4ALIGN.en.md`](docs/FEYNMAN-4ALIGN.en.md)。
 
 一条命令自检（fail-closed：缺件绝不返回 0）：
 

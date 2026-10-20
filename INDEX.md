@@ -13,13 +13,14 @@
 | `spec/REVERSED-MODE-v1.0.md` | reversed mode: task reversal, process reversal R1–R5, hard gate R-G1 | — | — |
 | `spec/task-card-template-v1.0.md` | task-card template with the H-GATE pre-work hard gate | — | — |
 | `docs/FEYNMAN-4ALIGN.zh-CN.md` | the guide contract: four-axis alignment, scorecard, 14 worked examples, 6 analogies, sourced references, 4 self-failure modes (≥10,000 Chinese chars) | — | — |
+| `docs/FEYNMAN-4ALIGN.en.md` | English condensed edition: the four definitions verbatim in substance, scorecard + cap rule, 3 worked examples, 4 failure modes, contract-level failure conditions, references (~2,200 words) | — | — |
 | `gate/feynman_align_check.py` | structural checker for the four-axis contract (markers, long-form doc, every script's guide head); fails closed | stdlib only | `python gate/feynman_align_check.py --repo .` |
 | `THIRD_PARTY_NOTICES.md` | third-party mechanisms and dependencies register | — | — |
 | `LICENSE` | MIT | — | — |
 
 Proof 2 (the sieve: active-vendor DENY vs orphan CONDITIONAL, plus the Re-derivation four steps) is demonstrated by `gate/irep_gate.py` cases 3 and 4 — it is a verdict pattern, not a standalone tool.
 
-**Reading order for maintainers:** `README.md` (first screen) → `docs/FEYNMAN-4ALIGN.zh-CN.md` (the contract this repo is judged by) → `gate/feynman_align_check.py` (the machine that enforces it). Any contribution that adds a claim must also add the command that produces it — see §4 of the contract.
+**Reading order for maintainers:** `README.md` (first screen) → `docs/FEYNMAN-4ALIGN.zh-CN.md` (the contract this repo is judged by) → `gate/feynman_align_check.py` (the machine that enforces it). English readers can take the same path through `docs/FEYNMAN-4ALIGN.en.md`. Any contribution that adds a claim must also add the command that produces it — see §4 of the contract.
 
 Sibling repository: `chenhz01/irep-video-acceptance-ci` (AI-video acceptance sampling reduction, 9.82× measured).
 

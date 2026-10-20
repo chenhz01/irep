@@ -1,8 +1,17 @@
 # IREP — Industrial Reverse-Engineering Protocol
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![6 tools · exit 0](https://img.shields.io/badge/6%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
+
 > **We built a ruler that can judge a system to death. The first thing it measured was itself.**
 
 Status: spec v1.0.0 · License: MIT · Self-judgment: `BREAKTHROUGH` (r = 1.143) · All numbers below are re-runnable.
+
+**Three ways in — pick one, thirty seconds each**
+
+- **Here to save money** → the sibling repo cuts AI-video acceptance sampling by a measured 9.82×, with a safety layer that never trades away: [`irep-video-acceptance-ci`](https://github.com/chenhz01/irep-video-acceptance-ci)
+- **Here to integrate** → one command, standard library only: `python gate/irep_gate.py` (four scales, one verdict); then `gate/irep_gate_reversed.py` points the ruler back at you.
+- **Here to doubt it** → read §10–§11 of the contract (how the mechanism fails, and when it does not apply), or run the checker that returns 1 when a piece is missing: [`docs/FEYNMAN-4ALIGN.en.md`](docs/FEYNMAN-4ALIGN.en.md)
+
 
 ---
 
@@ -26,10 +35,12 @@ Every claim in this README has to align on four axes. The structural part is enf
 |---|---|---|---|
 | **Result** | every number has a basis, a command, and a boundary | numbers ledger, long-form doc §4.3 | `proofs/*.py`, all exit 0 |
 | **Mechanism** | every mechanism is named, has input → output, and a stated failure condition | four-part ledger, §5.2 | `spec/`, `gate/` |
-| **Code** | every command was actually run; exit codes are contracts | six commands, stdlib only, deterministic | `## Reproduce everything` |
+| **Code** | every command was actually run; exit codes are contracts | six commands, one optional dependency (numpy), deterministic | `## Reproduce everything` |
 | **Direction** | what this repo refuses to do, and for whom | negative scope + G8 on the first page | `## Use boundary` |
 
 Full contract — 10,000+ Chinese characters, 14 worked examples, 6 analogies, sourced reference list, and the four ways this mechanism itself fails: [`docs/FEYNMAN-4ALIGN.zh-CN.md`](docs/FEYNMAN-4ALIGN.zh-CN.md).
+
+English condensed edition (about 2,200 words) — same four definitions, same scorecard, same failure conditions: [`docs/FEYNMAN-4ALIGN.en.md`](docs/FEYNMAN-4ALIGN.en.md).
 
 Check it yourself in one line (fails closed — a missing piece never returns 0):
 

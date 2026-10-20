@@ -15,6 +15,10 @@ Design notes
   that part is a human job. See docs/FEYNMAN-4ALIGN.zh-CN.md §13.
 * Structural anchors are HTML comments (<!-- FGA4:xxx -->) so they are invisible
   to readers but stable for the machine.
+* Bilingual by construction: `*.en.md` is measured in words (default 1800) and
+  checked against the English axis names; every other edition is measured in CJK
+  characters (default 10000). One counter for both languages would let an edition
+  pass on the other edition's volume — the exact metric error logged in §13.4.
 """
 from __future__ import annotations
 
@@ -30,6 +34,13 @@ REQUIRED_MARKERS = ("sister", "trending", "axes")
 FEYNMAN_ZH = ("这是什么", "为什么", "怎么办")
 FEYNMAN_EN = ("what is this", "why should you care", "what should you do")
 AXES_ZH = ("结果", "技术", "代码", "方向")
+AXES_EN = ("result", "mechanism", "code", "direction")
+WORD = re.compile(r"[A-Za-z][A-Za-z'\u2019-]*")
+
+
+def is_english(name: str) -> bool:
+    """An English edition is any docs file tagged `.en.md` (case-insensitive)."""
+    return name.lower().endswith(".en.md")
 
 
 def read(path: str) -> str:
@@ -75,7 +86,7 @@ def check_readme(path: str) -> list[str]:
     return errs
 
 
-def check_docs(repo: str, min_chars: int) -> list[str]:
+def check_docs(repo: str, min_chars: int, min_words: int) -> list[str]:
     errs = []
     docs_dir = os.path.join(repo, "docs")
     if not os.path.isdir(docs_dir):
@@ -86,15 +97,28 @@ def check_docs(repo: str, min_chars: int) -> list[str]:
     for name in sorted(cands):
         path = os.path.join(docs_dir, name)
         text = read(path)
-        cjk = len(CJK.findall(text))
-        if cjk < min_chars:
-            errs.append(f"docs/{name}: {cjk} Chinese chars < required {min_chars}")
-        missing = [a for a in AXES_ZH if a not in text]
-        if missing:
-            errs.append(f"docs/{name}: four-axis sections missing: {', '.join(missing)}")
-        for anchor in ("失效条件", "引用"):
-            if anchor not in text:
-                errs.append(f"docs/{name}: required section missing: {anchor}")
+        if is_english(name):
+            # English edition: words, English axis names, English anchors.
+            words = len(WORD.findall(text))
+            if words < min_words:
+                errs.append(f"docs/{name}: {words} words < required {min_words}")
+            low = text.lower()
+            missing = [a for a in AXES_EN if a not in low]
+            if missing:
+                errs.append(f"docs/{name}: four-axis sections missing: {', '.join(missing)}")
+            for anchor in ("failure condition", "references"):
+                if anchor not in low:
+                    errs.append(f"docs/{name}: required section missing: {anchor}")
+        else:
+            cjk = len(CJK.findall(text))
+            if cjk < min_chars:
+                errs.append(f"docs/{name}: {cjk} Chinese chars < required {min_chars}")
+            missing = [a for a in AXES_ZH if a not in text]
+            if missing:
+                errs.append(f"docs/{name}: four-axis sections missing: {', '.join(missing)}")
+            for anchor in ("失效条件", "引用"):
+                if anchor not in text:
+                    errs.append(f"docs/{name}: required section missing: {anchor}")
     return errs
 
 
@@ -112,7 +136,8 @@ def check_scripts(repo: str) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser(description="FGA-4 structural checker (fail-closed)")
     ap.add_argument("--repo", default=".", help="repository root to check")
-    ap.add_argument("--min-chars", type=int, default=10000, help="min Chinese chars in the long-form doc")
+    ap.add_argument("--min-chars", type=int, default=10000, help="min Chinese chars in a CJK long-form doc")
+    ap.add_argument("--min-words", type=int, default=1800, help="min words in an English (.en.md) edition")
     args = ap.parse_args()
 
     repo = os.path.abspath(args.repo)
@@ -128,7 +153,7 @@ def main() -> int:
     errs: list[str] = []
     for r in readmes:
         errs.extend(check_readme(r))
-    errs.extend(check_docs(repo, args.min_chars))
+    errs.extend(check_docs(repo, args.min_chars, args.min_words))
     errs.extend(check_scripts(repo))
 
     name = os.path.basename(repo.rstrip("\\/"))
