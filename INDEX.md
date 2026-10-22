@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # INDEX — repository map
 
 | Path | What it is | Dependencies | Re-run |
@@ -17,8 +19,13 @@
 | `gate/feynman_align_check.py` | structural checker for the four-axis contract (markers, long-form doc, every script's guide head); fails closed | stdlib only | `python gate/feynman_align_check.py --repo .` |
 | `spec/G9-emergence-and-do-right-v1.1.md` | scales 5–6: five-verdict emergence judge + Do-Right gate (Q1–Q5, ruler sha256 lock, carrier check, S/M/L). **Specification only — implementation not in this repo** | — | — |
 | `docs/EMERGENCE-v1.1.zh-CN.md` | Chinese methodology for scales 5–6: 100-case corpus results, two perturbations, four operators, 12-gate meta-ruler, 19 recorded failure modes, machine boundaries | — | — |
+| `gate/feynman_read_assist.py` | Feynman reading-assist layer (FRA): every major section must answer what / why / what-to-do; fails closed | stdlib only | `python gate/feynman_read_assist.py --repo .` |
 | `THIRD_PARTY_NOTICES.md` | third-party mechanisms and dependencies register | — | — |
-| `LICENSE` | MIT | — | — |
+| `LICENSE` | **Apache License 2.0** — covers code (`gate/*.py`, `proofs/*.py`) | — | — |
+| `LICENSE-SPEC` | **CC BY 4.0** — covers specification and documentation (full legal code reproduced) | — | — |
+| `NOTICE` | dual-licence attribution: scope split, attribution trigger, suggested credit strings | — | — |
+
+**Licence rule:** dual, split by file type — MIT is not offered. Every file carries an `SPDX-License-Identifier` tag; the tag on the file wins over its directory.
 
 Proof 2 (the sieve: active-vendor DENY vs orphan CONDITIONAL, plus the Re-derivation four steps) is demonstrated by `gate/irep_gate.py` cases 3 and 4 — it is a verdict pattern, not a standalone tool.
 

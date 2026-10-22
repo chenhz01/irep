@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
 # -*- coding: utf-8 -*-
 """
 irep_gate.py -- 工业逆推协议门（Industrial Reverse-Engineering Protocol Gate）

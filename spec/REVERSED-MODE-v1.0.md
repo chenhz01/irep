@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Reversed mode — task reversal + process reversal (v1.0)
 
 > **Feynman guide (60 seconds).** *What is this?* The gate's original job is pointing at somebody else's system. This document flips the chair: once you publish, **your** repository is the reference system somebody else points at. Same four rulers, opposite direction. *Why should you care?* Every public repo is already a reference system — the only question is whether anyone has ever measured its exposure surface. *What should you do?* Run `python gate/irep_gate_reversed.py`: three reversed verdicts, an exposure audit, and five mechanical self-checks (R1–R5). Any FAIL: fix it before shipping.

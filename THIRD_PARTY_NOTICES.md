@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # Third-Party Notices
 
 This file registers third-party mechanisms and dependencies referenced or used by this repository, per the attribution gate (L2) and MIT obligations. Every entry states what was used and what was not.

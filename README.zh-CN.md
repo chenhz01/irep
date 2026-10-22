@@ -1,10 +1,12 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # IREP — 工业逆推协议（Industrial Reverse-Engineering Protocol）
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![6 tools · exit 0](https://img.shields.io/badge/6%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
+[![代码: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![规范: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
 
 > **我们造了一把能判死系统的尺子。第一刀，量的它自己。**
 
-状态：规范 v1.0.0 · 许可：MIT · 自判：`BREAKTHROUGH`（r = 1.143）· 本文所有数字均可复跑。
+状态：规范 v1.1.0 · 仓库 v1.3.0 · 许可：Apache-2.0（代码）+ CC BY 4.0（规范与文档） · 自判：`BREAKTHROUGH`（r = 1.143）· 本文所有数字均可复跑。
 
 **三条入口 — 挑一条，各三十秒**
 
@@ -25,6 +27,31 @@ IREP 是一把尺子。指向任何系统——开源代码、二进制固件、
 
 **你该怎么办？**
 克隆本仓，跑 `python gate/irep_gate.py`，然后把尺子指向你自己的下一个项目。如果它判 `BLOCKED`，相信它——那是筛子在工作，不是尺子失灵。
+
+<!-- FRA:layer -->
+**同样的三个问题，给每一章各配一份**
+
+这么长的仓库有一个失效模式：你读了开头、来了兴趣，却始终没走到真正跟你有关的那一节。
+所以每个主章节都配同一组三问。先扫这张表，跳到属于你的那一行。
+
+<!-- FRA:start -->
+| 章节 | 这是什么 | 为什么和你有关 | 你该怎么办 |
+|---|---|---|---|
+| [三个问题](#three-questions) | 一句话版协议：我能不能在这个系统上做东西，做出来算不算第二代 | 写代码之前它先判两件事：合不合法，值不值得认领 | 跑 `python gate/irep_gate.py`，读那一个判决词 |
+| [实证一 · 双缝](#proof-double-slit) | 四条公理，重建出公理根本没提过的量子预测 | 「压缩再无损重建」到处是口号，这里是带误差棒的打印数字 | 跑 `python proofs/anchor_codec.py`，核对 14 项 held-out 预测 |
+| [实证二 · 有主系统](#proof-owners) | 多数目标有主人，`BLOCKED` 是筛子不是墙 | 一分钟砍掉九十个「有主」候选——省的是你的法律人格，不只是时间 | 先读孤儿四前提，别把「没人维护」当成「无主」 |
+| [实证三 · 费马大定理](#proof-flt) | 被藏了 358 年的证明，只靠约束逆推回来 | 它证明可传的是约束不是源码，也说明指源为什么不是客套 | 跑 `python proofs/flt_rederive.py`，看 H3 预测它没算过的素数 |
+| [附录 · 飞控黑盒](#appendix-flight) | 只见阶跃响应，重建一个隐藏的工业控制器 | 看清哪几层能传（约束层、调参层），哪一层永远不能（十万飞行小时） | 跑 `python proofs/ctrl_rederive.py`，先读等终性警告再下结论 |
+| [第五、第六尺](#emergence-scales) | 两把量「刚生成出来的东西」的尺：新不新，尺是不是开工前就定好的 | 自动研究循环能一直生成，却分不清「新」和「重播」——缺的就是这把尺 | 读 `spec/G9-emergence-and-do-right-v1.1.md`；代码落地前数字都算未验证 |
+| [逆转模式](#reversed-mode) | 同一把尺，转向「踩着你公开面做东西的人」 | 你发表的那一刻，就成了别人要被拿来量的参考系统 | 跑 `python gate/irep_gate_reversed.py`，看最低成本克隆者得几分 |
+| [使用边界 G8](#use-boundary) | 本协议永远拒绝指向的东西 | 它在第一页不在最后一页：武器、恶意软件、监控一律熔断，不看意图 | 做任何事之前，先拿这四条对一遍你的目标 |
+<!-- FRA:end -->
+
+一行验这一层（失败即熔断——缺一行永远不会返回 0）：
+
+```bash
+python gate/feynman_read_assist.py --repo .
+```
 
 <!-- FGA4:axes -->
 **四对齐 — 而且这份导读是被机器查的，不是被品味查的**
@@ -50,6 +77,8 @@ python gate/feynman_align_check.py --repo .
 
 ---
 
+<a id="three-questions"></a>
+<!-- FRA:sec:three-questions -->
 ## 三个问题，与回答它们的机器
 
 你发现一个值得站在其肩膀上的系统。难点从来不是看懂它，是三个问题：
@@ -71,6 +100,8 @@ python gate/feynman_align_check.py --repo .
 
 ---
 
+<a id="proof-double-slit"></a>
+<!-- FRA:sec:proof-double-slit -->
 ## 实证一 · 费曼双缝：「预测等价」是可证明的
 
 可跑：`proofs/anchor_codec.py` · held-out 校验，独立复跑 exit 0。
@@ -94,6 +125,8 @@ python gate/feynman_align_check.py --repo .
 
 ---
 
+<a id="proof-owners"></a>
+<!-- FRA:sec:proof-owners -->
 ## 实证二 · 多数系统有主：判死是筛子，重建是活路
 
 值得逆推的系统，**九成有主的**：厂商在营、EULA 禁逆向、法务全年无休。对它们，「逆推」两个字写在简历里都寒碜。
@@ -121,6 +154,8 @@ python gate/feynman_align_check.py --repo .
 
 ---
 
+<a id="proof-flt"></a>
+<!-- FRA:sec:proof-flt -->
 ## 实证三 · 费马大定理：被垄断 358 年的「知识」，逆推回来的是知识点本身
 
 可跑：`proofs/flt_rederive.py` · 四节点全 PASS，零查表，独立复跑 exit 0。
@@ -144,6 +179,8 @@ H3 是全场最锋利的一刀：**机器没被告知任何 CM 理论**——它
 
 ---
 
+<a id="appendix-flight"></a>
+<!-- FRA:sec:appendix-flight -->
 ## 附录 · 飞控黑盒重演重建（工业面）
 
 可跑：`proofs/ctrl_rederive.py` · held-out 三场景 RMSE < 9.1mm，独立复跑 exit 0。
@@ -164,6 +201,8 @@ H3 是全场最锋利的一刀：**机器没被告知任何 CM 理论**——它
 ⑤ 验收署名      → 工业件：义务台账 / 覆盖率门 / 就绪度门 / 错误台账
 ```
 
+<a id="reversed-mode"></a>
+<!-- FRA:sec:reversed-mode -->
 ## 逆转模式 — 尺子的第二刀
 
 > 尺子量的第一件东西是它自己。第二刀，量它自己的公开面——因为你发布的那一刻，你的仓就成了别人的参考系统。
@@ -186,10 +225,25 @@ R5 署名审计 → R4 差异度设防 → R3 约束公版 → R2 暴露面清�
 
 可跑：`gate/irep_gate_reversed.py`（仅标准库；退出码可当 CI 门——0 = R1-R5 全过）。全文见 `spec/REVERSED-MODE-v1.0.md`，含逆转硬闸 **R-G1**：暴露面审计必须机器产出——「我觉得没露」是 G7 治过的同一种病。
 
+<a id="emergence-scales"></a>
+<!-- FRA:sec:emergence-scales -->
+## 第五尺与第六尺 — 量「刚生成出来的东西」（规范 v1.1.0）
+
+v1.0 那四把尺量的是**已经存在的系统**。这两把量的是**刚刚生成出来的东西**——你写的，或者一个自动研究循环写的。
+
+- **第五尺 · 涌现**：一条推理链里，有没有参考链中不存在的原子？五态判决：`HALLUCINATION`（步骤带着没挣到的前提）/ `DRIFT`（离开了参考却没到任何地方）/ `ECHO`（用参考里已有的原子重新推出）/ `EMERGENT`（带着一个挣到的新原子）/ `UNKNOWN`（证据判不了，就说判不了，别猜）。
+- **第六尺 · 做对事**：判决是在开工**之前**形成的吗？契约是 `manifest 进 → 退出码出`，五问 Q1–Q5，外加尺文件的 sha256 锁——防止临跑之前把尺偷偷改小。
+
+**两把尺目前都以规范形式发布。** 参考实现写过、跑过，但**不在本仓库**；`spec/G9-emergence-and-do-right-v1.1.md` 第 4 节写明了这一点，文档里全部数字在代码落地前都标为未验证。中文方法论全文（含实测分布，以及那道「机器全绿但语义判错」的边界展品）见 `docs/EMERGENCE-v1.1.zh-CN.md`。
+
+---
+
 ## 硬闸（G1–G8，全文见 `spec/`）
 
 G1 无源声明禁入对外文本 · G2 r < 0.5 禁称第二代 · G3 许可 unknown 一律 fail-closed · G4 公开仓库=现有技术，有专利意图先检索 · G5 公开可得≠授权 · G6 场景闸：版权人在营=DENY，孤儿=有条件放行 · G7 重演重建必须过 held-out 对拍——无对拍的「原生重建」只是自称 · **G8 危险域禁令（见下节）**。
 
+<a id="use-boundary"></a>
+<!-- FRA:sec:use-boundary -->
 ## 使用边界 — G8，协议第一页
 
 IREP 与知识互转协议禁指向：
@@ -285,4 +339,13 @@ python gate/irep_gate_reversed.py  # 仅标准库——逆转模式：三个判�
 
 ## 许可与声明
 
-MIT——见 `LICENSE`。第三方机制与依赖登记在 `THIRD_PARTY_NOTICES.md`（含 `morluto/rea`，MIT：机制取自其公开文档，未复制代码；差异判决 r = 1.143）。本工具与本文是工程自检，不构成法律意见。
+**双许可，按文件类型分割 —— 本仓不再提供 MIT。**
+
+| 范围 | 文件 | 许可 |
+|---|---|---|
+| 代码 | `gate/*.py`、`proofs/*.py` —— 任何标 `Apache-2.0` 的文件 | **Apache License 2.0** —— [`LICENSE`](LICENSE) |
+| 规范与文档 | `spec/*.md`、`docs/*.md`、两份 README、`INDEX.md`、`THIRD_PARTY_NOTICES.md` —— 任何标 `CC-BY-4.0` 的文件 | **CC BY 4.0** —— [`LICENSE-SPEC`](LICENSE-SPEC) |
+
+每个文件都带 `SPDX-License-Identifier` 标记，**以文件上的标记为准**。署名义务与推荐署名格式见 [`NOTICE`](NOTICE)。
+
+第三方机制与依赖登记在 `THIRD_PARTY_NOTICES.md`（含 `morluto/rea`，MIT：仅引用其公开文档中的机制，未复制任何代码；差异度判定 r = 1.143）。本工具与本文档是工程自检，不是法律意见。

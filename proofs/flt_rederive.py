@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
 # -*- coding: utf-8 -*-
 """
 flt_rederive.py — 费马大定理 IREP 逆推重建机（Re-derivation 四步实证）

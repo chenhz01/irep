@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
 """feynman_align_check.py — Feynman Guide Four-Axis Alignment checker (FGA-4).
 
 费曼导读（60 秒）：

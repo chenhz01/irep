@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # 费曼导读 · 四对齐机制 v1.0
 
 > **English abstract** — This document defines the Feynman Guide Four-Axis Alignment (FGA-4): every README claim in this repository must align on four axes — *result* (numbers reproducible), *mechanism* (named, with inputs/outputs/failure mode), *code* (commands run, exit codes are contracts), *direction* (explicit negative scope). Includes a 0–5 scorecard with a 3.0 gate, fourteen worked examples, six analogies, a sourced reference list, and four failure modes of the mechanism itself. Length: ≥10,000 Chinese characters by design, because a guide you can skim is a guide nobody used.

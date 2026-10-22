@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
 # -*- coding: utf-8 -*-
 """
 irep_gate_reversed.py -- IREP 逆转模式（任务逆转 + 流程逆转）
@@ -130,13 +131,13 @@ def reversed_cases():
 
     return [
         evaluate("R1 · IREP 换皮克隆（不署名）",
-                 pub, cand_r1, "MIT", artifacts[:4],
+                 pub, cand_r1, "Apache-2.0", artifacts[:4],
                  patent_intent=False, attribution=None),
         evaluate("R2 · IREP 换皮克隆（署名完备 + 专利意图）",
-                 pub, cand_r2, "MIT", artifacts,
+                 pub, cand_r2, "Apache-2.0", artifacts,
                  patent_intent=True, attribution="IREP-THIRD-PARTY-NOTICES.md"),
         evaluate("R3 · IREP 之上的真第二代候选",
-                 pub, cand_r3, "MIT", artifacts,
+                 pub, cand_r3, "Apache-2.0", artifacts,
                  patent_intent=False, attribution="IREP-THIRD-PARTY-NOTICES.md"),
     ]
 
@@ -189,10 +190,16 @@ def process_reversal_checks():
     no_src = [m["id"] for m in REFERENCE_IREP_PUBLIC if not m.get("src")]
     checks.append(("R2", "暴露面清点", not no_src,
                    "%d 条公开机制全部指源" % len(REFERENCE_IREP_PUBLIC)))
-    # R1 放行条件：LICENSE 在位且 MIT（别人可学可用，须留名）
-    ok = exists("LICENSE") and "MIT" in read("LICENSE")
+    # R1 放行条件：双许可在位（代码 Apache-2.0 + 规范文档 CC BY 4.0 + NOTICE 署名）
+    # 别人可学可用，须留名——放行条件由发布方写死，换许可必须同步改这里。
+    lic_ok = (exists("LICENSE") and "Apache License" in read("LICENSE"))
+    spec_ok = (exists("LICENSE-SPEC")
+               and "Creative Commons Attribution 4.0" in read("LICENSE-SPEC"))
+    notice_ok = exists("NOTICE") and "Apache" in read("NOTICE")
+    ok = lic_ok and spec_ok and notice_ok
     checks.append(("R1", "放行条件", ok,
-                   "LICENSE 在位且为 MIT（放行条件由发布方写死）"))
+                   "LICENSE=Apache-2.0 + LICENSE-SPEC=CC BY 4.0 + NOTICE 在位"
+                   + "（放行条件由发布方写死）"))
     return checks
 
 
@@ -260,7 +267,7 @@ def main():
     for s, n, ok, d in checks:
         print("[%s %s] %s  %s" % (s, n, "PASS" if ok else "FAIL", d))
     print("\n>>> 逆转门：%s" % ("R1-R5 全过" if all_pass else "有 FAIL——发布前先补"))
-    print(">>> 逆转模式是定位与署名管理，不是防拷贝保证（MIT 允许商用）；")
+    print(">>> 逆转模式是定位与署名管理，不是防拷贝保证（代码 Apache-2.0 允许商用，规范 CC BY 4.0 允许改编，均须留名）；")
     print(">>> 真正守住的是配方层与裁决记录——见 README「诚实分割」。")
     return 0 if all_pass else 1
 

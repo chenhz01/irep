@@ -1,10 +1,12 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # IREP — Industrial Reverse-Engineering Protocol
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![6 tools · exit 0](https://img.shields.io/badge/6%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
+[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![Spec: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
 
 > **We built a ruler that can judge a system to death. The first thing it measured was itself.**
 
-Status: spec v1.1.0 · repo v1.3.0 · License: MIT · Self-judgment: `BREAKTHROUGH` (r = 1.143) · All numbers below are re-runnable.
+Status: spec v1.1.0 · repo v1.3.0 · License: Apache-2.0 (code) + CC BY 4.0 (spec & docs) · Self-judgment: `BREAKTHROUGH` (r = 1.143) · All numbers below are re-runnable.
 
 > **v1.1.0 adds scales 5 and 6.** Scale 5 asks whether *generated* reasoning is new and earned, or just recitation (`HALLUCINATION / DRIFT / ECHO / EMERGENT / UNKNOWN`). Scale 6 asks whether the judgment was formed *before* the work, and proves it with a receipt: `manifest in → exit code out`, plus a sha256 lock on the ruler file so it cannot be shrunk right before the run. The four v1.0 scales are unchanged. Start at [`spec/G9-emergence-and-do-right-v1.1.md`](spec/G9-emergence-and-do-right-v1.1.md); the Chinese methodology with every measured number is [`docs/EMERGENCE-v1.1.zh-CN.md`](docs/EMERGENCE-v1.1.zh-CN.md).
 >
@@ -30,6 +32,32 @@ IREP is a ruler. Point it at any system — open-source code, binary firmware, e
 **What should you do?**
 Clone this repo, run `python gate/irep_gate.py`, then point the ruler at your own next project. If it says `BLOCKED`, believe it — that is the sieve working, not the ruler failing.
 
+<!-- FRA:layer -->
+**The same three questions, for every section**
+
+A repository this long has one failure mode: you read the top, get interested,
+and never reach the part that is actually about you. So every major section gets
+the same three answers. Skim the table, jump to the one row that is yours.
+
+<!-- FRA:start -->
+| Section | What is this | Why should you care | What to do |
+|---|---|---|---|
+| [The three questions](#three-questions) | The protocol in one line: may I build on this, and is my build a second generation? | This decides, before you write code, whether the project is lawful and worth claiming. | Run `python gate/irep_gate.py` on your candidate and read the one-word verdict. |
+| [Proof 1 — double slit](#proof-double-slit) | Four axioms rebuild quantum predictions those axioms never mentioned | "Compress it, then rebuild it" is a slogan almost everywhere; here it is a printed number with an error bar. | Run `python proofs/anchor_codec.py` and check the 14 held-out predictions. |
+| [Proof 2 — owners and sieves](#proof-owners) | Most targets have owners; `BLOCKED` is a sieve, not a wall | It cuts ninety owned candidates in a minute — that is your legal personality, not just time saved. | Read the four orphan preconditions before assuming "abandoned" means "ownerless". |
+| [Proof 3 — Fermat's Last Theorem](#proof-flt) | 358 years of withheld proof, re-derived from constraints alone | Proves the transferable thing is constraints, not source code — and why attribution is not politeness. | Run `python proofs/flt_rederive.py`; watch node H3 predict primes it never computed. |
+| [Appendix — flight control](#appendix-flight) | A hidden industrial controller rebuilt from step responses only | Shows which layers of a real system transfer (constraints, tuning) and which never do (ten thousand flight hours). | Run `python proofs/ctrl_rederive.py`; read the asymptote warning before over-claiming. |
+| [Scale 5 and 6 — generated work](#emergence-scales) | Two scales that judge something just generated: is it new, was the ruler set before the work | Automated research loops generate all day and cannot tell new from replayed; this is the missing ruler. | Read `spec/G9-emergence-and-do-right-v1.1.md` — and treat its numbers as unverified until code lands. |
+| [Reversed mode](#reversed-mode) | The same gate pointed at somebody building on your public face | The day you publish, you become the reference system someone else gets measured against. | Run `python gate/irep_gate_reversed.py` and see what a minimum-cost cloner scores. |
+| [Use boundary (G8)](#use-boundary) | What this protocol refuses to be pointed at, ever | It is the first page, not the last: weapons, malware, surveillance fail closed regardless of intent. | Check your target against these four items before anything else. |
+<!-- FRA:end -->
+
+Check the layer itself in one line (fail-closed — a missing row never returns 0):
+
+```bash
+python gate/feynman_read_assist.py --repo .
+```
+
 <!-- FGA4:axes -->
 **Four-axis alignment — and this guide is checked by a machine, not by taste**
 
@@ -54,6 +82,8 @@ python gate/feynman_align_check.py --repo .
 
 ---
 
+<a id="three-questions"></a>
+<!-- FRA:sec:three-questions -->
 ## The three questions, and the machine that answers them
 
 You find a system worth building on. The hard part was never understanding it. The hard part is three questions:
@@ -75,6 +105,8 @@ Note the second row: it is **perfectly legal** — and still judged a respray. T
 
 ---
 
+<a id="proof-double-slit"></a>
+<!-- FRA:sec:proof-double-slit -->
 ## Proof 1 — Feynman's double slit: "prediction equivalence" is provable
 
 Runnable: `proofs/anchor_codec.py` · held-out validation, re-runs with exit 0.
@@ -98,6 +130,8 @@ Builder's confession, kept in the record: the machine was more reliable than its
 
 ---
 
+<a id="proof-owners"></a>
+<!-- FRA:sec:proof-owners -->
 ## Proof 2 — Most systems have owners: judging to death is a sieve, rebuilding is the road
 
 Most systems worth reverse-engineering **have owners**: active vendors, EULAs that forbid reverse engineering, legal departments that never sleep. For those, the word "reverse-engineer" reads badly on a resume.
@@ -125,6 +159,8 @@ Legal boundary, stated honestly: black-box observation for interoperability has 
 
 ---
 
+<a id="proof-flt"></a>
+<!-- FRA:sec:proof-flt -->
 ## Proof 3 — Fermat's Last Theorem: 358 years of "knowledge monopoly", re-derived
 
 Runnable: `proofs/flt_rederive.py` · four nodes all PASS, zero lookup tables, re-runs with exit 0.
@@ -148,6 +184,8 @@ That last point is why node H4 exists: Sophie Germain's contribution was real, y
 
 ---
 
+<a id="appendix-flight"></a>
+<!-- FRA:sec:appendix-flight -->
 ## Appendix — black-box flight-control rebuild (industrial face)
 
 Runnable: `proofs/ctrl_rederive.py` · held-out three scenarios RMSE < 9.1 mm, re-runs with exit 0.
@@ -168,6 +206,8 @@ A hidden altitude-hold controller (Kp=2.2, Ki=1.4, rate limit 1.50 m/s, integral
 ⑤ Acceptance & attribution → industrial artifacts: obligation ledger / coverage gate / readiness gate / error ledger
 ```
 
+<a id="reversed-mode"></a>
+<!-- FRA:sec:reversed-mode -->
 ## Reversed mode — the ruler's second cut
 
 > The first thing the ruler measured was itself. The second cut measures its own public face — because the moment you publish, your repo becomes somebody else's reference system.
@@ -191,10 +231,25 @@ The load-bearing arithmetic: a minimum-cost cloner preserves all 11 public mecha
 
 Runnable: `gate/irep_gate_reversed.py` (stdlib only; exit code is CI-usable — 0 = all five checks pass). Full text: `spec/REVERSED-MODE-v1.0.md`, including hard gate **R-G1**: the exposure audit must be machine-produced — "I think nothing leaked" is the same disease G7 cures.
 
+<a id="emergence-scales"></a>
+<!-- FRA:sec:emergence-scales -->
+## Scale 5 and 6 — judging what the machine generated (spec v1.1.0)
+
+The four v1.0 scales judge a system that **already exists**. These two judge something that was **just generated** — by you, or by an automated research loop.
+
+- **Scale 5 — emergence.** Does a reasoning chain contain an atom the reference did not have? Five verdicts: `HALLUCINATION` (steps carrying premises that were never earned) / `DRIFT` (left the reference without arriving anywhere) / `ECHO` (re-derived from atoms already present) / `EMERGENT` (carries a new, earned atom) / `UNKNOWN` (the evidence does not settle it — say so instead of guessing).
+- **Scale 6 — do-right.** Was the judgment formed *before* the work? The contract is `manifest in → exit code out`, five questions Q1–Q5, and a sha256 lock on the ruler file so the ruler cannot be quietly shrunk just before the run.
+
+**Both ship as specification only.** Their reference implementations were written and exercised but are **not in this repository**; §4 of [`spec/G9-emergence-and-do-right-v1.1.md`](spec/G9-emergence-and-do-right-v1.1.md) states this, and every number in that document is marked unverified until the code lands. The full Chinese methodology, with the measured distributions and the boundary exhibit where the gate green-lit a case it should not have, is [`docs/EMERGENCE-v1.1.zh-CN.md`](docs/EMERGENCE-v1.1.zh-CN.md).
+
+---
+
 ## Hard gates (G1–G8, full text in `spec/`)
 
 G1 no-source statements banned from external text · G2 r < 0.5 banned from "second generation" claims · G3 unknown license = fail-closed · G4 public repo = prior art, patent intent requires search first · G5 publicly available ≠ authorized · G6 scenario gate: active copyright holder = DENY, orphan = conditional · G7 re-derivation must pass held-out comparison — an uncompared "native rebuild" is only a self-claim · **G8 danger-domain ban (below)**.
 
+<a id="use-boundary"></a>
+<!-- FRA:sec:use-boundary -->
 ## Use boundary — G8, the first page of this protocol
 
 IREP and the knowledge-interconversion protocol must never be pointed at:
@@ -273,7 +328,7 @@ Everything here is free: read it, run it, fork it. We will never chase you.
 
 | Layer | What you get | How |
 |---|---|---|
-| 🌱 Open | everything in this repo, MIT, forever | clone and run |
+| 🌱 Open | everything in this repo, Apache-2.0 (code) / CC BY 4.0 (spec & docs), forever | clone and run |
 | 🔑 Partner | industrial acceptance playbooks, obligation-ledger templates, engagement scoring, held-out calibration support | write us, under NDA |
 | 💎 Never shipped | client data, calibration ledgers, internal amplifiers, identity assets | not negotiable, in any repo |
 
@@ -289,4 +344,13 @@ Contact: `hcac4735@agent.qq.com` (primary; 50 messages/day cap) · `shanlun2029@
 
 ## License & notices
 
-MIT — see `LICENSE`. Third-party mechanisms and dependencies are registered in `THIRD_PARTY_NOTICES.md` (including `morluto/rea`, MIT: mechanisms referenced from its public docs, no code copied; difference judgment r = 1.143). This tool and this document are engineering self-checks, not legal advice.
+**Dual-licensed, split by file type — MIT is not offered here.**
+
+| Scope | Files | Licence |
+|---|---|---|
+| Code | `gate/*.py`, `proofs/*.py` — anything tagged `Apache-2.0` | **Apache License 2.0** — [`LICENSE`](LICENSE) |
+| Specification & documentation | `spec/*.md`, `docs/*.md`, both READMEs, `INDEX.md`, `THIRD_PARTY_NOTICES.md` — anything tagged `CC-BY-4.0` | **CC BY 4.0** — [`LICENSE-SPEC`](LICENSE-SPEC) |
+
+Every file carries an `SPDX-License-Identifier` tag; **the tag on the file wins**. Attribution obligations and suggested credit strings are in [`NOTICE`](NOTICE).
+
+Third-party mechanisms and dependencies are registered in `THIRD_PARTY_NOTICES.md` (including `morluto/rea`, MIT: mechanisms referenced from its public docs, no code copied; difference judgment r = 1.143). This tool and this document are engineering self-checks, not legal advice.

@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # The Feynman Guide Contract — Four-Axis Alignment (English condensed edition)
 
 > Condensed from the Chinese contract (`FEYNMAN-4ALIGN.zh-CN.md`, 10,000+ characters): definitions, scorecard and failure conditions kept intact, fourteen worked examples cut to three. Every number below is re-runnable from this repository.

@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # IREP v1.1 中文方法论：涌现尺与「做对事」门
 
 > 英文规范：`spec/G9-emergence-and-do-right-v1.1.md`

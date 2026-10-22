@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 # -*- coding: utf-8 -*-
 """
 ctrl_rederive.py — IREP 黑盒飞控重演重建机（工业高度保持类问题的玩具级全真演示）

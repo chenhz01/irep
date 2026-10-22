@@ -1,0 +1,97 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+# NOTICE
+
+IREP — Industrial Reverse-Engineering Protocol
+Repository: https://github.com/chenhz01/irep
+Copyright 2026 IREP contributors
+
+Contact: hcac4735@agent.qq.com (primary) · shanlun2029@outlook.com (overseas alternative)
+
+---
+
+## 1. Two licences, two scopes — they do not overlap
+
+This repository is **dual-licensed by file type**. MIT is **not** offered here;
+the two licences below partition the repository and never cover the same file.
+
+| Scope | Files | Licence | File |
+|---|---|---|---|
+| **Code** | `gate/*.py`, `proofs/*.py` and any file whose SPDX tag is `Apache-2.0` | **Apache License 2.0** | [`LICENSE`](LICENSE) |
+| **Specification & documentation** | `spec/*.md`, `docs/*.md`, `README.md`, `README.zh-CN.md`, `INDEX.md`, `THIRD_PARTY_NOTICES.md` and any file whose SPDX tag is `CC-BY-4.0` | **Creative Commons Attribution 4.0 International (CC BY 4.0)** | [`LICENSE-SPEC`](LICENSE-SPEC) |
+
+Every file carries a machine-readable `SPDX-License-Identifier` tag. **The tag on
+the file wins.** If a file is moved from `docs/` to `gate/`, its licence does not
+change until its SPDX tag changes.
+
+Nothing else in this repository is under any other licence. Third-party
+mechanisms referenced from public documentation are registered in
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) — no third-party code is
+vendored here.
+
+---
+
+## 2. Attribution trigger — when you must name us
+
+**Apache License 2.0 (code), s4(d):** if you distribute a derivative of the
+code — including as part of a larger work — you must (1) give recipients a copy
+of the licence, (2) state that you modified the files, (3) retain all copyright,
+patent, trademark and attribution notices from the source, and (4) if a `NOTICE`
+file exists, reproduce its attribution content in your derivative.
+
+**Creative Commons Attribution 4.0 (spec / docs), s3(a)(1):** if you reproduce,
+adapt, translate, or build teaching material from the specification or
+documentation, you must credit the source, link to the licence, and state
+whether you modified it. This obligation is not waived by summarising,
+re-typesetting, or machine-translating the text.
+
+**You do not need to ask permission.** Both licences grant the rights up front.
+Attribution is the price of the grant, not a favour.
+
+**What we do ask, and cannot require:** if you build a competing or successor
+ruler, say which scales you took from here. The attribution gate (L2) in this
+protocol exists precisely because process enters the public domain while
+attribution stays in the ledger — see Proof 3 (Sophie Germain) in the README for
+why that line was drawn.
+
+---
+
+## 3. Suggested attribution strings
+
+Code (Apache-2.0):
+
+```
+IREP gate and proofs — https://github.com/chenhz01/irep
+Copyright 2026 IREP contributors. Licensed under the Apache License, Version 2.0.
+Modifications: <describe>
+```
+
+Specification / documentation (CC BY 4.0):
+
+```
+"Emergence and Do-Right scales (IREP spec v1.1.0)" by IREP contributors,
+licensed under CC BY 4.0. https://github.com/chenhz01/irep
+Modified: <yes/no>
+```
+
+---
+
+## 4. Disclaimer carried with both licences
+
+This repository and its documentation are **engineering self-checks, not legal
+advice.** The license matrix (L1) and the scenario gate (G6) are heuristics for
+engineering triage. Legal boundaries depend on jurisdiction and fact pattern;
+confirm with counsel before acting. The G8 danger-domain ban in the README is a
+policy of this project, not a legal safe harbour.
+
+---
+
+## 5. No-patent statement, repeated here because NOTICE travels
+
+Within the scope of our prior-art search (completed 2026-10-15; eight comparable
+public efforts located), no identical prior work was found for two components:
+the quantified difference-degree ruler and the fail-closed license gate. We do
+not claim global first-ness. We publish the specification, not a patent.
+
+Apache-2.0 s3 grants a patent licence from contributors to recipients for
+contributions they make; it terminates if you initiate patent litigation
+alleging the work infringes. That is the licence's own term, not ours.

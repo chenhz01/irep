@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+
 # G9 — Emergence and Do-Right: the fifth and sixth scales (v1.1)
 
 Status: **specification published; reference implementation not yet open-sourced.**
