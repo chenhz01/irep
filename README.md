@@ -4,7 +4,11 @@
 
 > **We built a ruler that can judge a system to death. The first thing it measured was itself.**
 
-Status: spec v1.0.0 · License: MIT · Self-judgment: `BREAKTHROUGH` (r = 1.143) · All numbers below are re-runnable.
+Status: spec v1.1.0 · repo v1.3.0 · License: MIT · Self-judgment: `BREAKTHROUGH` (r = 1.143) · All numbers below are re-runnable.
+
+> **v1.1.0 adds scales 5 and 6.** Scale 5 asks whether *generated* reasoning is new and earned, or just recitation (`HALLUCINATION / DRIFT / ECHO / EMERGENT / UNKNOWN`). Scale 6 asks whether the judgment was formed *before* the work, and proves it with a receipt: `manifest in → exit code out`, plus a sha256 lock on the ruler file so it cannot be shrunk right before the run. The four v1.0 scales are unchanged. Start at [`spec/G9-emergence-and-do-right-v1.1.md`](spec/G9-emergence-and-do-right-v1.1.md); the Chinese methodology with every measured number is [`docs/EMERGENCE-v1.1.zh-CN.md`](docs/EMERGENCE-v1.1.zh-CN.md).
+>
+> **Honest status: these two scales ship as specification.** Their reference implementations were written and exercised, but they are **not yet in this repository** — see §4 of G9. Treat the numbers in that document as unverified until the code lands. Nothing in the v1.0 gate is affected; it remains fully runnable.
 
 **Three ways in — pick one, thirty seconds each**
 

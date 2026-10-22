@@ -15,6 +15,8 @@
 | `docs/FEYNMAN-4ALIGN.zh-CN.md` | the guide contract: four-axis alignment, scorecard, 14 worked examples, 6 analogies, sourced references, 4 self-failure modes (≥10,000 Chinese chars) | — | — |
 | `docs/FEYNMAN-4ALIGN.en.md` | English condensed edition: the four definitions verbatim in substance, scorecard + cap rule, 3 worked examples, 4 failure modes, contract-level failure conditions, references (~2,200 words) | — | — |
 | `gate/feynman_align_check.py` | structural checker for the four-axis contract (markers, long-form doc, every script's guide head); fails closed | stdlib only | `python gate/feynman_align_check.py --repo .` |
+| `spec/G9-emergence-and-do-right-v1.1.md` | scales 5–6: five-verdict emergence judge + Do-Right gate (Q1–Q5, ruler sha256 lock, carrier check, S/M/L). **Specification only — implementation not in this repo** | — | — |
+| `docs/EMERGENCE-v1.1.zh-CN.md` | Chinese methodology for scales 5–6: 100-case corpus results, two perturbations, four operators, 12-gate meta-ruler, 19 recorded failure modes, machine boundaries | — | — |
 | `THIRD_PARTY_NOTICES.md` | third-party mechanisms and dependencies register | — | — |
 | `LICENSE` | MIT | — | — |
 
