@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IREP — Judge before you build</title>
+<style>
+:root{--bg:#0b0e14;--card:#161c2c;--card2:#111726;--line:#25304a;--txt:#e8edf7;--mut:#8b98b4;--blue:#5b9dff;--green:#3ddc97;--amber:#ffb454}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:56px 28px 72px}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--blue);text-transform:uppercase;margin-bottom:10px}
+h1{font-size:46px;margin:0 0 8px;letter-spacing:-.03em;color:#fff}
+.lead{font-size:19px;color:var(--mut);max-width:720px;margin:0 0 14px}
+.quote{border-left:3px solid var(--blue);padding:8px 0 8px 18px;margin:22px 0 34px;font-size:17px;color:#fff;font-style:italic}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 36px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 8px;font-size:15px;color:#fff}
+.card p{margin:0;font-size:13px;color:var(--mut)}
+h2{font-size:20px;margin:38px 0 12px;color:#fff}
+pre{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;color:#b9d3ff;margin:0 0 14px}
+code{font-family:"SFMono-Regular",Consolas,monospace}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border-radius:10px;overflow:hidden}
+th{background:#1b2337;color:var(--mut);text-align:left;padding:10px 12px;font-size:12px}
+td{padding:10px 12px;border-bottom:1px solid #202a40}
+tr:last-child td{border-bottom:none}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.links{display:flex;gap:18px;flex-wrap:wrap;margin:28px 0 0;font-size:14px}
+.note{background:rgba(255,180,84,.07);border:1px solid rgba(255,180,84,.3);border-radius:10px;padding:15px 18px;font-size:13px;color:var(--mut);margin-top:26px}
+.note b{color:var(--amber)}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:12px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}h1{font-size:34px}}
+</style>
+</head>
+<body><div class="wrap">
+<div class="eyebrow">Industrial Reverse-Engineering Protocol · v1.3.0</div>
+<h1>IREP</h1>
+<p class="lead">A ruler for the question teams usually answer with vibes, legal bills, or luck: <em>may I build on this system, must I say so, and is what I ship a genuine second generation?</em></p>
+<div class="quote">"We built a ruler that can judge a system to death. The first thing it measured was itself."</div>
+
+<div class="grid">
+<div class="card"><h3>One word, four scales</h3><p><code>irep_gate.py</code> measures license, attribution completeness, difference degree and industrial acceptance, then prints BREAKTHROUGH / DERIVATIVE / REPLICA / BLOCKED.</p></div>
+<div class="card"><h3>Four held-out proofs</h3><p>Double-slit prediction equivalence, owner/sieve filtering, Fermat re-derivation, and a black-box flight-control rebuild. All re-runnable, stdlib except two simulations.</p></div>
+<div class="card"><h3>Judge before you build</h3><p>G8 is fail-closed: weapons, malware and unauthorized surveillance are out of scope regardless of intent. The boundary is on the first page, not the last.</p></div>
+</div>
+
+<h2>Thirty seconds in</h2>
+<pre><code>git clone https://github.com/chenhz01/irep
+cd irep
+python gate/irep_gate.py          # four contrast verdicts, stdlib only
+pip install .                    # optional: exposes the CLI entry points
+irep-gate --json                 # same gate, machine-readable</code></pre>
+<p style="font-size:13px;color:var(--mut)">Two simulation proofs need <code>pip install "numpy&gt;=1.20"</code> (or <code>pip install ".[proofs]"</code>). The gate and the Fermat proof never do.</p>
+
+<h2>What is actually here</h2>
+<table>
+<tr><th>Layer</th><th>Contents</th></tr>
+<tr><td>Runable gate</td><td><code>gate/</code> — four scripts, including reversed mode that points the ruler back at you</td></tr>
+<tr><td>Proofs</td><td><code>proofs/</code> — three re-derivation programs with held-out checks</td></tr>
+<tr><td>Specification</td><td><code>spec/</code> — G-rules, G1–G8 hard gates, v1.1 scale 5/6, reversed mode, task-card template</td></tr>
+<tr><td>Long-form docs</td><td><code>docs/</code> — Feynman four-axis contract (zh), condensed English edition, emergence methodology</td></tr>
+</table>
+
+<h2>Honest status</h2>
+<p style="font-size:14px;color:var(--mut)">The four v1.0 scales are fully runnable. <b style="color:var(--amber)">Scale 5 and 6 ship as specification only</b> — their reference implementations were exercised but are not in this repository; treat the numbers in that document as unverified until the code lands. Every number elsewhere has a command attached; if one fails on a clean Python 3.10+ install, that is a bug worth an issue.</p>
+
+<div class="note"><b>Licence split by file type, not a single licence.</b> Code is Apache-2.0; specification and documentation are CC BY 4.0. The SPDX tag on each file wins. <b>MIT is not offered here.</b> IREP is an engineering self-check and a difference metric, not legal advice.</div>
+
+<div class="links">
+<a href="https://github.com/chenhz01/irep">Repository →</a>
+<a href="https://github.com/chenhz01/irep/issues">Issues →</a>
+<a href="https://github.com/chenhz01/irep/discussions">Discussions →</a>
+<a href="https://github.com/chenhz01/irep/blob/main/docs/FEYNMAN-4ALIGN.en.md">Four-axis contract →</a>
+</div>
+<footer>Static page · no tracking, no analytics, zero dependencies · chenhz01/irep</footer>
+</div></body></html>
