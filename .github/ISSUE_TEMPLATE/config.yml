@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 用例征集 / 开放讨论
+    url: https://github.com/chenhz01/irep/discussions
+    about: 想聊「这把尺子能不能用在你的场景」，请去 Discussions，不必开 issue。
+  - name: 合作与锁定层咨询
+    url: mailto:hcac4735@agent.qq.com
+    about: 工业验收 playbook、义务账本模板等不在本仓的锁定层，请走邮件（48 小时响应目标）。

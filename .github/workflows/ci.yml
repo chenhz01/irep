@@ -1,0 +1,56 @@
+name: IREP CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    # 钉在 24.04：ubuntu-latest 已迁到 26.04，其上无 Python 3.10 预编译版（本仓 badge 声明 3.10+）
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install optional proof dependency
+        run: python -m pip install "numpy>=1.20"
+
+      - name: Run judgment gate
+        run: python gate/irep_gate.py
+
+      - name: Run reversed judgment gate
+        run: python gate/irep_gate_reversed.py
+
+      - name: Run Feynman alignment checker
+        run: python gate/feynman_align_check.py --repo .
+
+      - name: Run reading-assist checker
+        run: python gate/feynman_read_assist.py --repo .
+
+      - name: Run anchor codec proof
+        run: python proofs/anchor_codec.py
+
+      - name: Run Fermat re-derivation proof
+        run: python proofs/flt_rederive.py
+
+      - name: Run flight-control proof
+        run: python proofs/ctrl_rederive.py
+
+      # 放最后：pip install . 可能在源码目录生成 build/ 副本，
+      # 而 feynman_align_check.py 会扫描仓库所有 .py 并要求 docstring 带 Feynman guide。
+      # 先跑检查器、后打包，消除这个顺序耦合。
+      - name: Verify the package installs
+        run: python -m pip install .
+
+      - name: Verify the installed CLI runs
+        run: irep-gate --json > /dev/null

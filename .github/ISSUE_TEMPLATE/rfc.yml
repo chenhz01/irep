@@ -1,0 +1,44 @@
+name: Protocol RFC / 尺子本身的争议
+description: 对四尺度、G1–G8 硬闸、v1.1 的 scale 5/6，或某个 held-out 证明提出异议
+title: "[RFC] "
+labels: ["rfc"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        最好的异议是「用同一把尺子跑出不同结论」。请尽量给出可复跑的命令或反例，
+        而不是只给判断。被采纳的异议会在 docs/ 出 errata 并署名致谢。
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 争议指向哪一层
+      options:
+        - L1 许可矩阵
+        - L2 署名完整性
+        - L3 差异度 r
+        - L4 工业验收件
+        - Scale 5 / 6（v1.1 规范层）
+        - G1–G8 硬闸与 G8 使用边界
+        - 某个 held-out 证明
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: 你认为哪里不成立
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可复跑证据 / 反例
+      description: 命令、输入、输出，或指向仓内具体文件与行号
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: 你建议怎么改
+    validations:
+      required: false

@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use IREP in a write-up, please cite this software."
+type: software
+title: "IREP - Industrial Reverse-Engineering Protocol"
+abstract: >-
+  A runnable judgment gate that answers, with four measurable scales, whether a
+  system may legally be built upon, whether attribution is owed, and whether the
+  result is a genuine second generation. Ships with four held-out re-derivation
+  proofs; code is Apache-2.0, specification and documentation are CC BY 4.0.
+version: 1.3.0
+authors:
+  - name: "chenhz01"
+repository-code: "https://github.com/chenhz01/irep"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+keywords:
+  - reverse-engineering
+  - compliance
+  - attribution
+  - judgment-gate
+  - reproducibility

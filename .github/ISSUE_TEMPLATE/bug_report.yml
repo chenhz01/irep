@@ -1,0 +1,44 @@
+name: Bug report / 复现失败
+description: 某个命令跑不通、某个数字无法复现、判决结果可疑
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        IREP 的契约是「每个数字都可复跑」。如果你跑不通，请先填下面三项，我们会在 48 小时内首次回应。
+        本工具是工程自检，不构成法律意见。
+  - type: input
+    id: command
+    attributes:
+      label: 你运行的命令
+      placeholder: "python gate/irep_gate.py"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Python 版本与系统
+      placeholder: "Python 3.12.10 / Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际输出（含退出码）
+      description: 请贴原文，不要改写；如有 Traceback 请完整保留
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你期望的输出
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: 使用边界确认（G8）
+      options:
+        - label: 我没有把本协议用于武器、恶意软件或未授权监控
+          required: true

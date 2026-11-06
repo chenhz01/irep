@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# 发行名不能用 "irep"：PyPI 上已被 iRep（宏基因组测序复制率计算，
+# christophertbrown/iRep，v1.1000）占用，2026-11-06 实拉 pypi.org/pypi/irep/json 返回 200。
+# irep-protocol / irep-gate / zhengming-irep 等候选均为 404（可用）。
+# console scripts 名称保持 irep-* 不变，用户感知不受影响。
+name = "irep-protocol"
+version = "1.3.0"
+description = "Industrial Reverse-Engineering Protocol - a runnable judgment gate for license, attribution, difference-degree and industrial acceptance"
+readme = "README.md"
+requires-python = ">=3.10"
+# 双许可按文件类型切分，与仓库 LICENSE / LICENSE-SPEC 一致；这里不用单一 SPDX，避免误示为单许可
+license = {text = "Apache-2.0 (code) / CC BY 4.0 (spec and docs)"}
+authors = [{name = "chenhz01"}]
+keywords = ["reverse-engineering", "compliance", "attribution", "license", "judgment-gate"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+]
+# 判定闸与 FLT 证明是 stdlib-only；只有两个模拟证明需要 numpy，故设为可选
+dependencies = []
+
+[project.optional-dependencies]
+proofs = ["numpy>=1.20"]
+
+[project.urls]
+Homepage = "https://chenhz01.github.io/irep/"
+Repository = "https://github.com/chenhz01/irep"
+Issues = "https://github.com/chenhz01/irep/issues"
+
+# 只暴露 4 个「装完即可独立运行」的入口。
+# gate/irep_gate_reversed.py 与 gate/feynman_*.py 依赖仓库根（README.md / docs / spec），
+# 装成 wheel 后路径失效，故不暴露为 console script，只在 README 中以源码仓命令说明。
+[project.scripts]
+irep-gate = "gate.irep_gate:main"
+irep-anchor = "proofs.anchor_codec:main"
+irep-flt = "proofs.flt_rederive:main"
+irep-ctrl = "proofs.ctrl_rederive:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gate*", "proofs*"]
+namespaces = true
