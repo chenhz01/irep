@@ -2,24 +2,29 @@
 
 # IREP — Industrial Reverse-Engineering Protocol
 
-[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![Spec: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
+[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![Spec: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![CI](https://github.com/chenhz01/irep/actions/workflows/ci.yml/badge.svg)](https://github.com/chenhz01/irep/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-zh%20%2B%20en-informational.svg)](https://chenhz01.github.io/irep/)
 
-> **We built a ruler that can judge a system to death. The first thing it measured was itself.**
+> **Judge before you build.** A ruler that answers three questions with measurable scales instead of opinions.
 
-Status: spec v1.1.0 · repo v1.3.0 · License: Apache-2.0 (code) + CC BY 4.0 (spec & docs) · Self-judgment: `BREAKTHROUGH` (r = 1.143) · All numbers below are re-runnable.
+**30 seconds, one command:**
 
-> **v1.1.0 adds scales 5 and 6.** Scale 5 asks whether *generated* reasoning is new and earned, or just recitation (`HALLUCINATION / DRIFT / ECHO / EMERGENT / UNKNOWN`). Scale 6 asks whether the judgment was formed *before* the work, and proves it with a receipt: `manifest in → exit code out`, plus a sha256 lock on the ruler file so it cannot be shrunk right before the run. The four v1.0 scales are unchanged. Start at [`spec/G9-emergence-and-do-right-v1.1.md`](spec/G9-emergence-and-do-right-v1.1.md); the Chinese methodology with every measured number is [`docs/EMERGENCE-v1.1.zh-CN.md`](docs/EMERGENCE-v1.1.zh-CN.md).
->
-> **Honest status: these two scales ship as specification.** Their reference implementations were written and exercised, but they are **not yet in this repository** — see §4 of G9. Treat the numbers in that document as unverified until the code lands. Nothing in the v1.0 gate is affected; it remains fully runnable.
+```bash
+git clone https://github.com/chenhz01/irep && cd irep && python gate/irep_gate.py
+```
 
-**Three ways in — pick one, thirty seconds each**
+It prints one word per candidate — `BREAKTHROUGH` / `DERIVATIVE` / `REPLICA` / `BLOCKED`.
+No network, no install, standard library only. `pip install .` is optional and exposes `irep-gate`, `irep-anchor`, `irep-flt`, `irep-ctrl`.
 
-- **Here to save money** → the sibling repo cuts AI-video acceptance sampling by a measured 9.82×, with a safety layer that never trades away: [`irep-video-acceptance-ci`](https://github.com/chenhz01/irep-video-acceptance-ci)
-- **Here to integrate** → one command, standard library only: `python gate/irep_gate.py` (four scales, one verdict); then `gate/irep_gate_reversed.py` points the ruler back at you.
-- **Here to doubt it** → read §10–§11 of the contract (how the mechanism fails, and when it does not apply), or run the checker that returns 1 when a piece is missing: [`docs/FEYNMAN-4ALIGN.en.md`](docs/FEYNMAN-4ALIGN.en.md)
+**Three ways in:**
 
+| Here to… | Go to |
+|---|---|
+| **use it** | [`irep_gate.py`](gate/irep_gate.py) — four scales, one verdict; then [`irep_gate_reversed.py`](gate/irep_gate_reversed.py) points the ruler back at you |
+| **doubt it** | [`docs/FEYNMAN-4ALIGN.en.md`](docs/FEYNMAN-4ALIGN.en.md) §10–§11, or run the checker that returns 1 when a piece is missing |
+| **change it** | [`spec/`](spec/) + [`CONTRIBUTING.md`](CONTRIBUTING.md) — RFCs and held-out counter-examples welcome |
 
----
+Code Apache-2.0 · spec & docs CC BY 4.0 · **MIT is not offered here** · v1.3.0.
+Every number here is re-runnable; a claim without a command is a bug — [open an issue](https://github.com/chenhz01/irep/issues/new/choose).
 
 ## Feynman guide — read this first (60 seconds)
 

@@ -1,21 +1,30 @@
 <!-- SPDX-License-Identifier: CC-BY-4.0 -->
 
-# IREP — 工业逆推协议（Industrial Reverse-Engineering Protocol）
+# IREP — 工业逆推协议
 
-[![代码: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![规范: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+ · numpy for 2 proofs](https://img.shields.io/badge/python-3.10%2B%20%C2%B7%20numpy%20for%202%20proofs-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![Self-judged BREAKTHROUGH · r = 1.143](https://img.shields.io/badge/self--judged-BREAKTHROUGH%20%C2%B7%20r%20%3D%201.143-success.svg)](docs/FEYNMAN-4ALIGN.en.md) [![Docs · 10k zh · 2.2k en](https://img.shields.io/badge/docs-10k%20zh%20%C2%B7%202.2k%20en-informational.svg)](docs/FEYNMAN-4ALIGN.en.md)
+[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![Spec: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#复跑一切) [![CI](https://github.com/chenhz01/irep/actions/workflows/ci.yml/badge.svg)](https://github.com/chenhz01/irep/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-zh%20%2B%20en-informational.svg)](https://chenhz01.github.io/irep/)
 
-> **我们造了一把能判死系统的尺子。第一刀，量的它自己。**
+> **先判，再建。** 一把尺子，用可度量的刻度回答三个问题，而不是靠感觉、律师费或运气。
 
-状态：规范 v1.1.0 · 仓库 v1.3.0 · 许可：Apache-2.0（代码）+ CC BY 4.0（规范与文档） · 自判：`BREAKTHROUGH`（r = 1.143）· 本文所有数字均可复跑。
+**30 秒，一条命令：**
 
-**三条入口 — 挑一条，各三十秒**
+```bash
+git clone https://github.com/chenhz01/irep && cd irep && python gate/irep_gate.py
+```
 
-- **想省钱** → 姊妹仓把 AI 视频验收的抽卡减到实测 9.82×，且安全层永不参与减抽卡：[`irep-video-acceptance-ci`](https://github.com/chenhz01/irep-video-acceptance-ci)
-- **想接入** → 一条命令、零第三方依赖：`python gate/irep_gate.py`（四把尺，一个判决）；再跑 `gate/irep_gate_reversed.py`，把尺子转向自己。
-- **想质疑** → 先读长文 §12（这套机制自己会怎么坏）与 §13（机器校验），再跑那个「缺件就返 1」的校验器：[`docs/FEYNMAN-4ALIGN.zh-CN.md`](docs/FEYNMAN-4ALIGN.zh-CN.md)
+每个候选只输出一个词：`BREAKTHROUGH` / `DERIVATIVE` / `REPLICA` / `BLOCKED`。
+不联网、不用装、只用标准库。`pip install .` 是可选的，会暴露 `irep-gate`、`irep-anchor`、`irep-flt`、`irep-ctrl` 四个命令。
 
+**三个入口：**
 
----
+| 你想…… | 去这里 |
+|---|---|
+| **用它** | [`irep_gate.py`](gate/irep_gate.py) — 四尺度，一个判决；再用 [`irep_gate_reversed.py`](gate/irep_gate_reversed.py) 把尺子掉头对准自己 |
+| **质疑它** | [`docs/FEYNMAN-4ALIGN.zh-CN.md`](docs/FEYNMAN-4ALIGN.zh-CN.md) 第 10–11 节，或跑那个「缺一块就返回 1」的检查器 |
+| **改它** | [`spec/`](spec/) + [`CONTRIBUTING.md`](CONTRIBUTING.md) — 欢迎 RFC 与 held-out 反例 |
+
+代码 Apache-2.0 · 规范与文档 CC BY 4.0 · **本仓不提供 MIT** · v1.3.0。
+这里每个数字都可复跑；没有命令支撑的宣称就是 bug —— [去提 issue](https://github.com/chenhz01/irep/issues/new/choose)。
 
 ## 费曼导读 — 先读这段（60 秒）
 
