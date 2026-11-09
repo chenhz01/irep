@@ -5,6 +5,7 @@
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![Spec: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#reproduce-everything) [![CI](https://github.com/chenhz01/irep/actions/workflows/ci.yml/badge.svg)](https://github.com/chenhz01/irep/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-zh%20%2B%20en-informational.svg)](https://chenhz01.github.io/irep/)
 
 > **Judge before you build.** A ruler that answers three questions with measurable scales instead of opinions.
+> An open-source, runnable alternative to opinion-based due-diligence checklists — independent, not affiliated with or endorsed by any standards body.
 
 **30 seconds, one command:**
 
@@ -14,6 +15,8 @@ git clone https://github.com/chenhz01/irep && cd irep && python gate/irep_gate.p
 
 It prints one word per candidate — `BREAKTHROUGH` / `DERIVATIVE` / `REPLICA` / `BLOCKED`.
 No network, no install, standard library only. `pip install .` is optional and exposes `irep-gate`, `irep-anchor`, `irep-flt`, `irep-ctrl`.
+
+**Distribution status (stated plainly):** the clone above is the only supported install. `irep-protocol` is a *reserved* PyPI name and is **not published** — `pip install irep` resolves to an unrelated bioinformatics package (iRep v1.1000). Plugin-marketplace distribution does not apply to a Python CLI; the repository contract lives in [`AGENTS.md`](AGENTS.md).
 
 **Three ways in:**
 

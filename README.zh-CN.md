@@ -5,6 +5,7 @@
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE) [![Spec: CC BY 4.0](https://img.shields.io/badge/spec%20%26%20docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-SPEC) [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](requirements.txt) [![7 tools · exit 0](https://img.shields.io/badge/7%20tools-exit%200-brightgreen.svg)](#复跑一切) [![CI](https://github.com/chenhz01/irep/actions/workflows/ci.yml/badge.svg)](https://github.com/chenhz01/irep/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-zh%20%2B%20en-informational.svg)](https://chenhz01.github.io/irep/)
 
 > **先判，再建。** 一把尺子，用可度量的刻度回答三个问题，而不是靠感觉、律师费或运气。
+> 一个开源、可实跑的替代品，用来换掉「靠感觉拍板」的尽调清单 —— 独立项目，不隶属、也不受任何标准组织背书。
 
 **30 秒，一条命令：**
 
@@ -14,6 +15,8 @@ git clone https://github.com/chenhz01/irep && cd irep && python gate/irep_gate.p
 
 每个候选只输出一个词：`BREAKTHROUGH` / `DERIVATIVE` / `REPLICA` / `BLOCKED`。
 不联网、不用装、只用标准库。`pip install .` 是可选的，会暴露 `irep-gate`、`irep-anchor`、`irep-flt`、`irep-ctrl` 四个命令。
+
+**分发现状（如实写）**：上面这条 clone 是当前唯一支持的安装方式。`irep-protocol` 只是**预留**的 PyPI 名，**尚未发布**；`pip install irep` 会装到一个无关的生物信息包（iRep v1.1000）。插件市场分发不适用于 Python CLI；仓库契约见 [`AGENTS.md`](AGENTS.md)。
 
 **三个入口：**
 
